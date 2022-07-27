@@ -296,7 +296,7 @@ contract FundingRound is
     // allocation = alpha * (sum of vote weights for p) + (1-alpha) * (sum of voice credits for p)
     return
       (alpha *
-        tallyResult +
+        _tallyResult +
         (precision - alpha) *
         (_spent * voiceCreditFactor)) / precision;
   }
