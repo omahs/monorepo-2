@@ -24,7 +24,7 @@ If you are not sponsored, try linking with one of the brightID apps, e.g [IDChai
 
 ## 4. Link with BrightID
 
-  Scan QR code or follow the link to link with BrightID app.
+  Scan the QR code or follow the link to connect with BrightID app.
 
   On the BrightID app, you'll be asked to confirm linking with clr.fund
 
@@ -38,7 +38,7 @@ If you are not sponsored, try linking with one of the brightID apps, e.g [IDChai
 
 
   <br/><br/>
-  Go back to Clr.fund site, and click the "next" button.
+  Go back to the clr.fund site, and click the "next" button.
 
   <img src="screenshots/brightid/5_next.png?raw=true" alt="Next" width="300"/>
 
@@ -54,5 +54,5 @@ If you are not sponsored, try linking with one of the brightID apps, e.g [IDChai
   <br/><br/>
   Click the "Become a contributor" button and submit a transaction to register as a contributor.
 
-  Congrations!! :tada: You can start donating to your favorite projects now.
+  Congratulations!! :tada: You can start donating to your favorite projects now.
 
