@@ -58,6 +58,7 @@ In a future version, we plan to address this by routing ETH and token contributi
 - [Sitemap](docs/sitemap.md)
 - [Website theme and customization](docs/theme.md)
 - [Deployment](docs/deployment.md)
+- [How to link with BrightID](docs/howto-link-brightid.md)
 
 ## Development
 
