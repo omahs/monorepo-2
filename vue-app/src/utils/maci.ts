@@ -1,5 +1,5 @@
 import { BigNumber } from 'ethers'
-import { genRandomSalt, IncrementalQuinTree } from 'maci-crypto'
+import { genRandomSalt, IncrementalQuinTree, hash5 } from 'maci-crypto'
 import { Keypair, PubKey, Command, Message } from 'maci-domainobjs'
 
 function bnSqrt(a: BigNumber): BigNumber {
@@ -76,7 +76,12 @@ export function getRecipientClaimData(
   // Create proof for total amount of spent voice credits
   const spent = tally.totalVoiceCreditsPerVoteOption.tally[recipientIndex]
   const spentSalt = tally.totalVoiceCreditsPerVoteOption.salt
-  const spentTree = new IncrementalQuinTree(recipientTreeDepth, BigInt(0))
+  const spentTree = new IncrementalQuinTree(
+    recipientTreeDepth,
+    BigInt(0),
+    5,
+    hash5
+  )
   for (const leaf of tally.totalVoiceCreditsPerVoteOption.tally) {
     spentTree.insert(BigInt(leaf))
   }
@@ -85,7 +90,9 @@ export function getRecipientClaimData(
   return [
     recipientIndex,
     spent,
-    spentProof.pathElements.map((x) => x.map((y) => y.toString())),
+    spentProof.pathElements.map((x: BigInt[]) =>
+      x.map((y: BigInt) => y.toString())
+    ),
     spentSalt,
   ]
 }
