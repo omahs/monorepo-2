@@ -1,4 +1,4 @@
-name: Hardhat script tests
+name: End to End tests
 
 on:
   push:
@@ -10,7 +10,7 @@ env:
   NODE_VERSION: 16.x
 
 jobs:
-  setup-and-tests:
+  e2e-tests:
     runs-on: ubuntu-22.04
     steps:
     - name: Use Node.js ${{ env.NODE_VERSION }}
