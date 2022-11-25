@@ -2,7 +2,7 @@
 import { ethers, waffle } from 'hardhat'
 import { use, expect } from 'chai'
 import { solidity } from 'ethereum-waffle'
-import { BigNumber, Contract, Signer, Wallet } from 'ethers'
+import { BigNumber, Contract, Signer, Wallet, utils } from 'ethers'
 import { genProofs, proveOnChain } from 'maci-cli'
 import { Keypair } from 'maci-domainobjs'
 
@@ -222,11 +222,16 @@ describe('End-to-end Tests', function () {
   async function finalizeRound(): Promise<any> {
     const providerUrl = (provider as any)._hardhatNetwork.config.url
 
+    // create random macistate file to force regenerating the state from contract
+    // everytime genProofs is called
+    const macistate = `${Math.trunc(Math.random() * 1e8)}.macistate.json`
+
     // Process messages and tally votes
     const results = await genProofs({
       contract: maci.address,
       eth_provider: providerUrl,
       privkey: coordinatorKeypair.privKey.serialize(),
+      macistate,
     })
     if (!results) {
       throw new Error('generation of proofs failed')
